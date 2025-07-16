@@ -1,8 +1,6 @@
-#include <stdlib.h>
-
 #ifndef TS_LEXER_H
 #define TS_LEXER_H
-
+#include <stdlib.h>
 enum token_type
 {
     TOKEN_LET,

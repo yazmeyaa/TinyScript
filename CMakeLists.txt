@@ -4,13 +4,14 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 add_library(list STATIC
-    src/utils/list.c
-    src/lexer/lexer.c
+        src/utils/list.c
+        src/lexer/lexer.c
+        src/utils/fs.c
 )
 
 target_include_directories(list PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/utils
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/utils
 )
 
 

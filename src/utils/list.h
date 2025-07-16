@@ -1,7 +1,6 @@
-#include <stdlib.h>
-
 #ifndef TS_LIST_H
 #define TS_LIST_H
+#include <stdlib.h>
 
 struct list
 {
