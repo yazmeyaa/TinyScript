@@ -13,7 +13,7 @@ struct list
 
 struct list create_list(size_t items_size);
 void list_add_item(struct list *list, const void *item);
-void list_get_item(struct list *list, size_t index, void *dist);
-void list_set_item(struct list *list, size_t index, const void *item);
+void list_get_item(const struct list *list, size_t index, void *dist);
+void list_set_item(const struct list *list, size_t index, const void *item);
 void *list_to_array(const struct list *list, size_t *len);
 #endif

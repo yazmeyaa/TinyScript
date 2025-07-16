@@ -25,12 +25,18 @@ void list_add_item(struct list *list, const void *item)
     if (list->length >= list->capacity)
     {
         list->capacity *= 2;
-        list->items = realloc(list->items, list->items_size * list->capacity);
+        void *new_list = realloc(list->items, list->items_size * list->capacity);
         if (list->items == NULL)
         {
             fprintf(stderr, "Failed to reallocate memory in add_item\n");
             abort();
         }
+        list->items = new_list;
+    }
+    if (list->items == NULL)
+    {
+        fprintf(stderr, "Failed to allocate memory in add_item\n");
+        abort();
     }
 
     void *target = (char *)list->items + (list->length * list->items_size);
@@ -38,18 +44,18 @@ void list_add_item(struct list *list, const void *item)
     list->length++;
 }
 
-void list_get_item(struct list *list, size_t index, void *dest)
+void list_get_item(const struct list *list, const size_t index, void *dist)
 {
     if (index >= list->length)
     {
         fprintf(stderr, "Index %zu out of bounds in get_item\n", index);
         abort();
     }
-    void *item = (char *)list->items + (index * list->items_size);
-    memcpy(dest, item, list->items_size);
+    const void *item = (char *)list->items + (index * list->items_size);
+    memcpy(dist, item, list->items_size);
 }
 
-void list_set_item(struct list *list, size_t index, const void *item)
+void list_set_item(const struct list *list, const size_t index, const void *item)
 {
     if (index >= list->length)
     {
