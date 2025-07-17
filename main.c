@@ -26,11 +26,11 @@ int main(const int argc, const char **argv)
     for (int i = 0; i < lex_token_size; i++)
     {
         const struct lex_token t = lex_token[i];
-        char *token_str = token_type_to_str(t.type);
+        const char *token_str = token_type_to_str(t.type);
         char raw_token_text[t.length];
         memcpy(raw_token_text, t.start, t.length);
         raw_token_text[t.length] = '\0';
-        printf("type: %s\t position: %x\t length:%d\t raw_token_text: %s\n", token_str, *t.start, t.length, raw_token_text);
+        printf("token_type: %s\t line:%d\t column:%d\t\n", token_str, t.line, t.column);
     }
 
     return 0;
