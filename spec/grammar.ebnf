@@ -1,0 +1,6 @@
+declaration       = "var" IDENT type_annotation [ ":=" expression ] ";";
+type_annotation   = IDENT [ "<" type_annotation { "," type_annotation } ">" ];
+expression        = term { ("+" | "-") term };
+term              = factor { ("*" | "/" ) factor };
+factor            = NUMBER | IDENT | list | "(" expression ")";
+list              = "[" [ expression { "," expression } ] "]";
