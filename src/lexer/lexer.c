@@ -244,6 +244,9 @@ struct lex_token* parse_text(const char* input, const size_t length, size_t* out
             break;
         case ':': add_token(tokens, &count, TOKEN_COLON, start, 1, line, column);
             break;
+        case '#':
+            while (pos < length && input[pos] != '\n') pos++;
+            break;
         default: add_token(tokens, &count, TOKEN_UNKNOWN, start, 1, line, column);
             break;
         }

@@ -7,7 +7,12 @@ add_library(list STATIC
         src/utils/list.c
         src/lexer/lexer.c
         src/utils/fs.c
-        src/ast/ast.h
+        src/parser/ast.h
+        src/parser/parser.c
+        src/parser/parser.h
+        src/parser/ast.c
+        src/utils/str.c
+        src/utils/str.h
 )
 
 target_include_directories(list PUBLIC
